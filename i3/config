@@ -185,10 +185,13 @@ bindsym Control+$mod+l exec --no-startup-id i3lock -i /home/arda/.local/share/ba
 # Screenshot
 bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png
 
+# Autostart
 exec --no-startup-id setxkbmap -layout tr
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id xfce4-panel --disable-wm-check
 exec --no-startup-id nm-applet --no-agent
 exec --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/backgrounds/background.jpg
-exec --no-startup-id redshift-gtk &
+exec --no-startup-id redshift-gtk
+exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/lib/kdeconnectd
