@@ -1,1 +1,1 @@
-# Configurations for My Setup
+arch + i3-gaps + polybar + rofi = **perfection**
