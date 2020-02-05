@@ -1,3 +1,1 @@
-not completed yet
-
-arch + i3-gaps + polybar + rofi = **perfection**
+stuff i use on my pc (desktop)
