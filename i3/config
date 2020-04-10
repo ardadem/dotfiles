@@ -5,6 +5,7 @@
 set $mod Mod4
 
 set $Locker i3lock -c 000000
+set $Status /home/arda/.bumblebee-status/bumblebee-status
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -25,11 +26,7 @@ exec --no-startup-id numlockx on
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
 
 # Set background via feh.
 exec --no-startup-id ~/.fehbg &
@@ -38,17 +35,17 @@ exec --no-startup-id ~/.fehbg &
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Start kdeconnect daemon
-exec --no-startup-id /usr/lib/kdeconnectd
+#exec --no-startup-id /usr/lib/kdeconnectd
 
 # Start redshift
 exec --no-startup-id redshift-gtk
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ # Use amixer instead of pactl because pactl doesn't limit max volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- # && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle #&& $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle #&& $refresh_i3status
+set $refresh_status pkill -SIGUSR1 -f $Status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && $refresh_status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refresh_status
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_status
 
 # Use playerctl to control in MPRIS.
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -210,7 +207,7 @@ bindsym $mod+r mode "resize"
 bar {
         i3bar_command i3bar -t
         position bottom
-        status_command bumblebee-status -m spotify traffic cpu memory disk bluetooth pasink pasource dunst datetime -p engine.workspacewrap=false traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" memory.format="{used}/{total}" disk.format="{used}/{size}" pulseaudio.limit=150 pulseaudio.percent_change=5 datetime.format="%H:%M:%S - %d/%m/%y" -t greyish-powerline
+        status_command $Status -m traffic cpu2 memory disk amixer dunst datetime -p engine.workspacewrap=false traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" cpu2.layout="cpu2.cpuload cpu2.temp" cpu2.temp_pattern="temp1_input" memory.format="{used}/{total}" disk.format="{used}/{size}" datetime.format="%H:%M:%S - %d/%m/%y" -t greyish-powerline
 	font pango:Roboto Sans 9
         colors {
                 background #00000000
