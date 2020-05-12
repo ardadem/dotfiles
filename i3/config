@@ -212,8 +212,8 @@ bar {
         position bottom
         status_command $Status -m traffic cpu2 memory disk amixer dunst datetime -p engine.workspacewrap=false traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" cpu2.layout="cpu2.cpuload cpu2.temp" cpu2.temp_pattern="temp1_input" memory.format="{used}/{total}" disk.format="{used}/{size}" datetime.format="%H:%M:%S - %d/%m/%y" -t greyish-powerline
 	font pango:Roboto Sans 9
-	wheel_up_cmd nop
-	wheel_down_cmd nop
+	bindsym button4 nop
+	bindsym button5 nop
         colors {
                 background #00000000
                 statusline #FFFFFFFF
