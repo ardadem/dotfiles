@@ -24,7 +24,7 @@
 	icon_position = off
 	sticky_history = yes
 	history_length = 20
-	browser = /usr/bin/firefox-developer-edition -new-tab
+	browser = /usr/bin/firefox -new-tab
 	always_run_script = true
 	title = Dunst
 	class = Dunst
