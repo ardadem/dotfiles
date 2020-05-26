@@ -232,5 +232,5 @@ bar {
 		disk.format="{used}/{size}" \
 		datetime.format="%H:%M:%S - %d/%m/%y"
 
-        status_command $Status -m $bumblebee-modules -t greyish-powerline -p $bumblebee-module-parameters
+        status_command $Status -t greyish-powerline -m $bumblebee-modules -p $bumblebee-module-parameters
 }
