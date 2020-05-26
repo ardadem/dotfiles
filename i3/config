@@ -223,11 +223,10 @@ bar {
         }
 
 	# Bumblebee status
-	set $bumblebee-modules spotify traffic cpu2 memory disk amixer dunst datetime
+	set $bumblebee-modules spotify traffic cpu memory disk amixer dunst datetime
 	set $bumblebee-module-parameters engine.workspacewrap=false \
 		spotify.previous=SCROLL_DOWN spotify.next=SCROLL_UP spotify.pause=LEFT_CLICK \
 		traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" \
-		cpu2.layout="cpu2.cpuload cpu2.temp" cpu2.temp_pattern="temp1_input" \
 		memory.format="{used}/{total}" \
 		disk.format="{used}/{size}" \
 		datetime.format="%H:%M:%S - %d/%m/%y"
