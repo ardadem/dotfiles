@@ -210,7 +210,6 @@ bindsym $mod+r mode "resize"
 bar {
         i3bar_command i3bar -t
         position bottom
-        status_command $Status -m spotify traffic cpu2 memory disk amixer dunst datetime -p engine.workspacewrap=false spotify.previous=SCROLL_DOWN spotify.next=SCROLL_UP spotify.pause=LEFT_CLICK traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" cpu2.layout="cpu2.cpuload cpu2.temp" cpu2.temp_pattern="temp1_input" memory.format="{used}/{total}" disk.format="{used}/{size}" datetime.format="%H:%M:%S - %d/%m/%y" -t greyish-powerline
 	font pango:Roboto Sans 9
 	bindsym button4 nop
 	bindsym button5 nop
@@ -221,6 +220,17 @@ bar {
                 # colorclass       <border>    <background>     <text>
                 focused_workspace  #FFFFFFFF    #FFFFFF33      #FFFFFFFF
                 inactive_workspace #FFFFFFDD    #00000000      #FFFFFFDD
-
         }
+
+	# Bumblebee status
+	set $bumblebee-modules spotify traffic cpu2 memory disk amixer dunst datetime
+	set $bumblebee-module-parameters engine.workspacewrap=false \
+		spotify.previous=SCROLL_DOWN spotify.next=SCROLL_UP spotify.pause=LEFT_CLICK \
+		traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0" \
+		cpu2.layout="cpu2.cpuload cpu2.temp" cpu2.temp_pattern="temp1_input" \
+		memory.format="{used}/{total}" \
+		disk.format="{used}/{size}" \
+		datetime.format="%H:%M:%S - %d/%m/%y"
+
+        status_command $Status -m $bumblebee-modules -t greyish-powerline -p $bumblebee-module-parameters
 }
