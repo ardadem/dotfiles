@@ -3,9 +3,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
-set $Locker i3lock -c 000000
-set $Status /home/arda/.bumblebee-status/bumblebee-status
+set $locker i3lock -c 000000
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -26,7 +24,7 @@ exec --no-startup-id numlockx on
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -45,33 +43,22 @@ exec --no-startup-id picom --config ~/.config/i3/picom.conf
 exec --no-startup-id redshift-gtk
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_status pkill -SIGUSR1 -f $Status
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && $refresh_status
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refresh_status
+set $refresh_status pkill -SIGUSR1 -f bumblebee-status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 4%+ && $refresh_status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 4%- && $refresh_status
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_status
 
 # Use playerctl to control in MPRIS.
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # take a screenshot
 bindsym --release Print exec --no-startup-id scrot ~/Pics/%Y-%m-%d-%T-screenshot.png
 
-# Power menu (don't forget to edit /etc/systemd/logind.conf, set power button action to ignore).
-set $mode_system Choose: (l) lock, (s) suspend, (h) hibernate, (Power Button) shutdown or ESC
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym XF86PowerOff exec --no-startup-id ~/.local/share/graceful-shutdown/graceful_shutdown.sh, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym XF86PowerOff mode "$mode_system"
+# lock screen
+bindsym $mod+Pause $locker
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -83,7 +70,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 
 # change focus
 bindsym $mod+j focus left
@@ -231,5 +218,5 @@ bar {
 		disk.format="{used}/{size}" \
 		datetime.format="%H:%M:%S - %d/%m/%y"
 
-        status_command $Status -t greyish-powerline -m $bumblebee-modules -p $bumblebee-module-parameters
+        status_command ~/.bumblebee-status/bumblebee-status -t greyish-powerline -m $bumblebee-modules -p $bumblebee-module-parameters
 }
