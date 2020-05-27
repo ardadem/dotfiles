@@ -42,7 +42,7 @@ exec --no-startup-id picom --config ~/.config/i3/picom.conf
 # Start redshift
 exec --no-startup-id redshift-gtk
 
-# Use pactl to adjust volume in PulseAudio.
+# Use amixer to adjust volume in ALSA.
 set $refresh_status pkill -SIGUSR1 -f bumblebee-status
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 4%+ && $refresh_status
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 4%- && $refresh_status
