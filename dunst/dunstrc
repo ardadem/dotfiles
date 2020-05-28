@@ -51,3 +51,7 @@
 
 [fullscreen_delay_everything]
 	fullscreen = delay
+
+[firefox]
+	appname = Firefox
+	fullscreen = show
