@@ -210,10 +210,9 @@ bar {
         }
 
 	# Bumblebee status
-	set $bumblebee-modules spotify traffic cpu memory disk amixer dunst datetime
+	set $bumblebee-modules spotify network_traffic cpu memory disk amixer dunst datetime
 	set $bumblebee-module-parameters\
 		spotify.previous=SCROLL_DOWN spotify.next=SCROLL_UP spotify.pause=LEFT_CLICK\
-		traffic.showname=False traffic.states="^down" traffic.exclude="lo,tun0"\
 		memory.format="{used}/{total}"\
 		disk.format="{used}/{size}"\
 		datetime.format="%H:%M:%S - %d/%m/%y"
