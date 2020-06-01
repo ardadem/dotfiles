@@ -16,12 +16,6 @@ for_window [class=".*"] border pixel 0
 gaps inner 5
 smart_gaps on
 
-# Set keyboard layout
-exec --no-startup-id setxkbmap -layout tr
-
-# Set numlock on
-exec --no-startup-id numlockx on
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker --nofork
@@ -29,12 +23,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
-# Set background via feh.
-exec --no-startup-id ~/.fehbg &
-
-# Use picom to prevent tearing or transparency support.
-exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Start kdeconnect daemon
 #exec --no-startup-id /usr/lib/kdeconnectd
