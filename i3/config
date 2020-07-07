@@ -198,11 +198,13 @@ bar {
         }
 
 	# Bumblebee status
-	set $bumblebee-modules spotify network_traffic cpu memory disk amixer dunst datetime
+	set $bumblebee-modules spotify network_traffic cpu memory disk pasink pasource dunst datetime
 	set $bumblebee-module-parameters\
 		spotify.previous=SCROLL_DOWN spotify.next=SCROLL_UP spotify.pause=LEFT_CLICK\
 		memory.format="{used}/{total}"\
 		disk.format="{used}/{size}"\
+		pasink.limit="150" pasink.percent_change="5"\
+		pasource.limit="100" pasource.percent_change="1"\
 		datetime.format="%H:%M:%S - %d/%m/%y"
 
         status_command ~/.bumblebee-status/bumblebee-status -t greyish-powerline -m $bumblebee-modules -p $bumblebee-module-parameters
