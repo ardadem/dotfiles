@@ -13,7 +13,7 @@ numlockx on
 ~/.fehbg &
 
 # start x compositor
-picom --config ~/.config/i3/picom.conf &
+picom --config ~/.config/picom/picom.conf &
 
 # use kvantum theme for qt5 apps
 export QT_STYLE_OVERRIDE=kvantum
