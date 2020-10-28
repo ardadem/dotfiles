@@ -1,7 +1,6 @@
 #! /bin/sh
 
 sxhkd & # x hotkey daemon
-nm-applet & # network manager tray icon
 xsetroot -cursor_name left_ptr # get rid of ugly x cursor
 ~/.config/bspwm/launch.sh polybar main # panel
 ~/.config/bspwm/launch.sh redshift-gtk # adjusts color temperature of screen
