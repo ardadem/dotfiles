@@ -16,4 +16,4 @@ picom --config ~/.config/picom/picom.conf &
 export QT_STYLE_OVERRIDE=kvantum
 
 # start wm
-exec bspwm
+exec dbus-launch --exit-with-x11 bspwm
