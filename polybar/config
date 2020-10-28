@@ -33,7 +33,6 @@ font-0 = Roboto:size=11:weight=bold;1
 font-1 = fixed:pixelsize=10;1
 
 modules-left = bspwm
-modules-center = spotify
 modules-right = network cpu memory filesystem pulseaudio date
 
 tray-position = right
@@ -54,14 +53,6 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = "spotify: "
-format-prefix-foreground = #1db954
-format = <label>
-exec = python ~/.local/share/polybar/polybar-spotify/spotify_status.py -f '{artist} - {song}'
 
 [module/bspwm]
 type = internal/bspwm
