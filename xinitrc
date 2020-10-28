@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# pass display environemnt
-systemctl --user import-environment DISPLAY
-
 # set keyboard layout
 setxkbmap tr
 
