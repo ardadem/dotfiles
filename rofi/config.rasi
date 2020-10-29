@@ -1,13 +1,5 @@
 configuration { 
 	modi: "drun";
-	width: 100;
-	lines: 7;
-	padding: 594;
-	eh: 2;
-	font: "Roboto 18";
 	show-icons: true;
-	color-window: "argb:cc2f343f, argb:cc2f343f, argb:cc2f343f";
-	color-normal: "argb:002f343f, #d8dee8, argb:002f343f, argb:002f343f, #bf616a";
-	color-active: "#2f343f, #b48ead, #2f343f, #2f343f, #93e5cc";
-	color-urgent: "#2f343f, #ebcb8b, #2f343f, #2f343f, #ebcb8b";
+	theme: "mytheme";
 }
