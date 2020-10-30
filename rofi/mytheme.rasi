@@ -6,7 +6,7 @@
 }
 
 #window {
-	background-color: rgba(69,90,100,0.8);
+	background-color: rgba(69,90,100,0.5);
 	fullscreen: true;
 }
 
