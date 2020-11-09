@@ -4,4 +4,5 @@
 alias xu="sudo xbps-install -Su"
 alias xs="sudo xbps-install"
 alias xr="sudo xbps-remove"
+alias xqr="xbps-query -Rs"
 alias xq="xbps-query"
