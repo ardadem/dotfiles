@@ -23,6 +23,19 @@ Print
 	scrot ~/Pics/%Y-%m-%d-%T-screenshot.png
 
 #
+# volume keys
+#
+
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+
+XF86AudioLowerVolume
+	amixer set Master 5%-
+
+XF86AudioMute
+	amixer set Master toggle
+
+#
 # bspwm hotkeys
 #
 
