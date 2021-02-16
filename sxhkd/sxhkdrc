@@ -16,7 +16,7 @@ super + Escape
 
 # lockscreen
 super + l
-	betterlockscreen --lock dimblur --off 5
+	xset dpms 5; i3lock -n -c 282828; xset dpms 600
 
 # take a screenshot
 Print
