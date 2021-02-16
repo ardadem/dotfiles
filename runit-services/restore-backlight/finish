@@ -1,0 +1,9 @@
+#!/bin/sh
+
+[ -d '/var/cache/restore-backlight/' ] || mkdir -p '/var/cache/restore-backlight'
+[ -w '/var/cache/restore-backlight/' ] || chmod 755 '/var/cache/restore-backlight/'
+
+# Save current brightness of each card.
+for card in `find /sys/class/backlight/ -type l`; do
+    cp "$card/brightness" "/var/cache/restore-backlight/$(basename $card)-brightness-old"
+done
