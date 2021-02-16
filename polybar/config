@@ -11,7 +11,6 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
-monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 26
 fixed-center = true
@@ -33,7 +32,8 @@ font-0 = Roboto:size=12:weight=bold;2
 font-1 = unifont:fontformat=truetype:size=10;2
 
 modules-left = bspwm
-modules-right = network cpu memory filesystem pulseaudio date
+modules-center = battery
+modules-right = cpu memory filesystem pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -81,6 +81,24 @@ interval = 0.5
 format-connected = <label-connected>
 
 label-connected = "%{F#92b91d}down:%{F-} %downspeed%   %{F#92b91d}up:%{F-} %upspeed%"
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 79
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ADP1
+
+poll-interval = 5
+
+label-charging = "%{F#92b91d}charging:%{F-} %percentage%%"
+label-discharging = "%{F#92b91d}discharging:%{F-} %percentage%%"
+label-full = fully charged
+label-full-foreground = #92b91d
 
 [module/cpu]
 type = internal/cpu
