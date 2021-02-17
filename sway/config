@@ -113,6 +113,9 @@ input type:touchpad {
     # Lock screen
     bindsym $mod+l exec sh ~/.config/sway/lockscreen.sh -i $wallpaper
 
+    # Take a screenshot
+    bindsym Print exec grim ~/Pics/$(date +'%Y-%m-%d-%T_screenshot.png')
+
     # Volume keys
     bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
