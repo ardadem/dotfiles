@@ -25,14 +25,12 @@ smart_borders on
 gaps inner 4
 smart_gaps on
 
-# set gtk themes
-set $gnome-schema org.gnome.desktop.interface
+# set xcursor
+seat seat0 xcursor_theme "Breeze_Obsidian"
 
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Plata-Noir'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema font-name 'Roboto 10'
-}
+# Import gtk settings
+# https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+exec_always ~/.config/sway/import-gsettings.sh
 
 ### Output configuration
 #
@@ -121,6 +119,9 @@ input type:touchpad {
 
     # Lock screen
     bindsym $mod+l exec sh ~/.config/sway/lockscreen.sh -i $wallpaper
+
+    # Toggle main display
+    bindsym $mod+p output eDP-1 toggle
 
     # Take a screenshot
     bindsym Print exec grim ~/Pics/$(date +'%Y-%m-%d-%T_screenshot.png')
