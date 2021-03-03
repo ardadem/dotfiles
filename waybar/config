@@ -1,28 +1,9 @@
 {
-    // "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 23, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
+    "position": "bottom",
+    "height": 23,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "tray"],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -38,7 +19,6 @@
         "spacing": 6
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	"format": "{:%H:%M:%S}",
         "format-alt": "{:%Y-%m-%d}",
@@ -52,12 +32,7 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format": "{temperatureC}°C ",
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -73,20 +48,17 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+	"tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) {ipaddr}/{cidr}",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "eth ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
         "format": "{volume}% ",
         "format-bluetooth": "{volume}% ",
         "format-bluetooth-muted": " {icon} ",
