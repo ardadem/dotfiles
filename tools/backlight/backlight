@@ -1,0 +1,17 @@
+#!/bin/sh
+if [ -z $1 ] || [ -z $2 ]; then
+	echo "Usage: ./backlight (up|down) (percent)"
+	exit 1
+fi
+
+percent=$(echo $2 | sed 's|%||g')
+for card in $(find /sys/class/backlight/ -type l); do
+	brightness=$(cat "$card/brightness")
+	max_brightness=$(cat "$card/max_brightness")
+	step=$(expr $percent \* $max_brightness / 100)
+
+	new_brightness="$(expr $brightness $(case $1 in up) echo +;; down) echo -;; esac) $step)"
+	[ $new_brightness -gt $max_brightness ] && new_brightness=$max_brightness
+	[ $new_brightness -lt 0 ] && new_brightness=0
+	[ -z $new_brightness ] || echo $new_brightness > "$card/brightness"
+done
