@@ -1,8 +1,2 @@
 #!/bin/sh
-if pgrep -u $UID -x $1>/dev/null
-then
-	exit 0
-fi
-
-$@ &
-
+pgrep -u "$(id -u $USER)" -x "$1">/dev/null || "$@" &
