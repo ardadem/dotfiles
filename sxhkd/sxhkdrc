@@ -23,7 +23,7 @@ Print
 	scrot ~/Pics/%Y-%m-%d-%T-screenshot.png
 
 #
-# volume keys
+# volume and brightness hotkeys
 #
 
 XF86AudioRaiseVolume
@@ -34,6 +34,12 @@ XF86AudioLowerVolume
 
 XF86AudioMute
 	amixer set Master toggle
+
+XF86MonBrightnessUp
+	sh ~/.dotfiles/tools/backlight/backlight up 8%
+
+XF86MonBrightnessDown
+	sh ~/.dotfiles/tools/backlight/backlight down 8%
 
 #
 # bspwm hotkeys
