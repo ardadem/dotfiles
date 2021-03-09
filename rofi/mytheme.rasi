@@ -1,0 +1,39 @@
+* {
+	background-color: rgba(0,0,0,0);
+	text-color: rgba(255,255,255,1);
+	font: "Roboto 18";
+	spacing: 0;
+}
+
+#window {
+	background-color: rgba(69,90,100,0.5);
+	fullscreen: true;
+}
+
+#mainbox {
+	padding: 25% 30% 25%;
+}
+
+#inputbar {
+	margin: 0 0.3em 0 0;
+}
+
+#listview {
+	border: 1px 0 0;
+	border-color: @text-color;
+	scrollbar: true;
+}
+
+#element-icon {
+	size: 2ch;
+}
+
+#element {
+	padding: 16px;
+}
+
+#element.selected.normal {
+	text-color: rgba(255,150,150,1);
+}
+
+/* vim:ft=css
