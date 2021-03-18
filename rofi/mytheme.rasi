@@ -36,4 +36,10 @@
 	text-color: rgba(255,150,150,1);
 }
 
+#prompt {
+	font: "Roboto Italic 14";
+	margin: 0 10px 0 0;
+	vertical-align: 1;
+}
+
 /* vim:ft=css
