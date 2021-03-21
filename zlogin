@@ -1,1 +1,1 @@
-[[ -z $DISPLAY && $(fgconsole) -eq 1 ]] && exec startx
+[[ -z $DISPLAY && $(fgconsole) -eq 1 ]] && exec sway
