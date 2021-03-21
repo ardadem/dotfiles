@@ -1,8 +1,0 @@
-dunst/dunstrc -> ~/.config/dunst/dunstrc
-i3/config -> ~/.config/i3/config
-kitty/kitty.conf -> ~/.config/kitty/kitty.conf
-mpv/mpv.conf -> ~/.config/mpv/mpv.conf
-nvim/init.vim -> ~/.config/nvim/init.vim
-picom/picom.conf -> ~/.config/i3/picom.conf
-rofi/config -> ~/.config/rofi/config
-xinitrc -> ~/.xinitrc
