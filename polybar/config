@@ -3,7 +3,7 @@
 background = #66222222
 background-alt = #66444444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #fff
 foreground-alt = #666
 module-prefix = #000
 primary = #ffb52a
@@ -12,15 +12,13 @@ alert = #bd2c40
 
 [bar/main]
 width = 100%
-height = 26
-fixed-center = true
+height = 24
 bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
-line-color = #f00
 
 padding-left = 0
 padding-right = 2
@@ -28,12 +26,11 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto:size=12:weight=bold;2
-font-1 = unifont:fontformat=truetype:size=10;2
+font-0 = Roboto:size=11:weight=bold;2
+font-1 = unifont:fontformat=truetype:size=10;3
 
 modules-left = bspwm
-modules-center = battery
-modules-right = cpu memory filesystem pulseaudio date
+modules-right = cpu memory filesystem pulseaudio battery date
 
 tray-position = right
 tray-padding = 2
@@ -44,15 +41,8 @@ wm-restack = bspwm
 
 ;override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
 
 [module/bspwm]
 type = internal/bspwm
@@ -85,9 +75,6 @@ label-connected = "%{F#92b91d}down:%{F-} %downspeed%   %{F#92b91d}up:%{F-} %upsp
 [module/battery]
 type = internal/battery
 
-; This is useful in case the battery never reports 100% charge
-full-at = 79
-
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 battery = BAT1
@@ -97,25 +84,13 @@ poll-interval = 5
 
 label-charging = "%{F#92b91d}charging:%{F-} %percentage%%"
 label-discharging = "%{F#92b91d}discharging:%{F-} %percentage%%"
-label-full = fully charged
-label-full-foreground = #92b91d
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = <ramp-coreload>
 format-prefix = "cpu: "
 format-prefix-foreground = #b41db9
-
-ramp-coreload-spacing = 1
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
+label = %percentage%%
 
 [module/memory]
 type = internal/memory
@@ -131,8 +106,6 @@ interval = 25
 mount-0 = /
 
 label-mounted = %{F#b91d2f}root:%{F-} %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -142,9 +115,8 @@ format-volume-prefix-foreground = #b9781d
 format-volume = <label-volume> <bar-volume>
 label-volume = "%percentage%%"
 label-volume-foreground = ${root.foreground}
-
 label-muted = "muted %percentage%%"
-label-muted-foreground = #ff0000
+label-muted-foreground = ${colors.alert}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -165,7 +137,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date-alt = %Y-%m-%d
 
@@ -178,11 +150,6 @@ label = %date% %time%
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
 margin-top = 0
