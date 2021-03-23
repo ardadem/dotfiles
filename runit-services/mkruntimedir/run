@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for user in $(ls /home); do
+	userid=$(id -u $user)
+	[ -d /run/user/$userid ] && continue
+	mkdir /run/user/$userid
+	chown -R $user:$user /run/user/$userid
+	chmod -R 700 /run/user/$userid
+done
+
+exec chpst -b mkruntimedir pause
