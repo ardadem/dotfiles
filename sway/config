@@ -26,7 +26,7 @@ gaps inner 4
 smart_gaps on
 
 # set xcursor
-seat seat0 xcursor_theme "Neutral"
+seat seat0 xcursor_theme "Adwaita"
 
 # Import gtk settings
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
