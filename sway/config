@@ -11,11 +11,11 @@ set $mod Mod4
 # Your preferred terminal emulator
 set $term kitty
 # Wallpaper path
-set $wallpaper ~/.local/share/wallpaper.png
+set $wallpaper ~/.local/share/wallpaper.jpg
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --gtk-dark --allow-images --show=drun | xargs swaymsg exec --
+set $menu rofi -show drun | xargs swaymsg exec --
 
 # borders
 default_border pixel 1
