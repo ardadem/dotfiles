@@ -59,6 +59,7 @@
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
+        "scroll-step": 5,
         "format": "{volume}% ",
         "format-bluetooth": "{volume}% ",
         "format-bluetooth-muted": " {icon} ",
