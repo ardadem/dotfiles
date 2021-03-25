@@ -1,8 +1,9 @@
 #!/bin/sh
-
-for user in $(ls /home); do
-	userid=$(id -u $user)
+groupstr=$(getent group _seatd) || exit 1
+for user in $(echo $groupstr | cut -d':' -f4 | tr ',' '\n'); do
+	userid=$(id -u $user) || continue
 	[ -d /run/user/$userid ] && continue
+
 	mkdir /run/user/$userid
 	chown -R $user:$user /run/user/$userid
 	chmod -R 700 /run/user/$userid
