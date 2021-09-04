@@ -131,9 +131,9 @@ input type:touchpad {
     bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/tools/backlight/backlight down 8%
 
     # Volume keys
-    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-    bindsym XF86AudioMute exec amixer set Master toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 #
 # Moving around:
@@ -238,5 +238,8 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
 }
+
+exec pipewire
+exec pipewire-pulse
 
 include /etc/sway/config.d/*
