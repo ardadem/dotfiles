@@ -28,6 +28,10 @@
 	size: 2ch;
 }
 
+#element-text {
+	text-color: inherit;
+}
+
 #element {
 	padding: 16px;
 }
