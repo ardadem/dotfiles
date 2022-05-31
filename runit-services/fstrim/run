@@ -1,0 +1,5 @@
+#!/bin/sh
+
+TIMEFILE=$(dirname $0)/fstrim.timer
+
+exec /usr/bin/snooze -w0 -s 7d -t $TIMEFILE $(dirname $0)/dotrim $TIMEFILE
