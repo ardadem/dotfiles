@@ -239,7 +239,12 @@ bar {
     swaybar_command waybar
 }
 
+# xdg-desktop-portal
+exec ~/.config/sway/run-xdg-desktop-portal.sh
+
+# audio server
 exec pipewire
-exec pipewire-pulse
+
+for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
 
 include /etc/sway/config.d/*

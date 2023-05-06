@@ -32,7 +32,7 @@
         "format": "{}% "
     },
     "temperature": {
-        "format": "{temperatureC}°C ",
+        "format": "{temperatureC}°C ",
     },
     "backlight": {
         "format": "{percent}% {icon}",

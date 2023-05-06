@@ -8,16 +8,30 @@ return require('packer').startup(function()
 	-- Blank line
 	use 'lukas-reineke/indent-blankline.nvim'
 
+	use 'sakhnik/nvim-gdb'
+
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = { 'nvim-lua/plenary.nvim' }
+	}
+
+	use {
+		'romgrk/barbar.nvim',
+		requires = {'kyazdani42/nvim-web-devicons'}
+	}
+
 	-- Neovim theme
 	use {
-		'Mofiqul/dracula.nvim',
-		config = function() vim.cmd [[colorscheme dracula]] end
+		'EdenEast/nightfox.nvim',
+		config = function()
+			vim.cmd('colorscheme nightfox')
+		end
 	}
 
 	-- Status bar
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		config = function() require('lualine').setup { options = { theme = 'dracula' } } end
+		config = function() require('lualine').setup() end
 	}
 end)

@@ -1,5 +1,6 @@
 set mouse=a
 set number
+set termguicolors
 
 " copy clipboard (need wl-clipboard)
 vnoremap <C-c> "+y
