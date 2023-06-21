@@ -11,7 +11,7 @@ set $mod Mod4
 # Your preferred terminal emulator
 set $term kitty
 # Wallpaper path
-set $wallpaper ~/.local/share/wallpaper.png
+set $wallpaper ~/.local/share/wallpaper.jpg
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -239,12 +239,9 @@ bar {
     swaybar_command waybar
 }
 
-# xdg-desktop-portal
-exec ~/.config/sway/run-xdg-desktop-portal.sh
-
-# audio server
-exec pipewire
-
 for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
 
 include /etc/sway/config.d/*
+
+# xdg-desktop-portal
+exec /usr/bin/systemctl --user restart xdg-desktop-portal.service

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-for card in $(find /sys/class/backlight/ -type l); do
-	storage_file="/var/cache/restore-backlight/$(basename $card)-brightness-old"
-	[ -r "$storage_file" ] && cp "$storage_file" "$card/brightness"
-done
-
-exec chpst -b restore-backlight pause

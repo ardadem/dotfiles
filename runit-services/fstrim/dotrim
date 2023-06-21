@@ -1,9 +1,0 @@
-#!/bin/sh
-
-TIMEFILE=$(dirname $0)/fstrim.timer
-LOGFILE=/var/log/fstrim.log
-
-date -u >> $LOGFILE
-/usr/bin/fstrim -a -v >> $LOGFILE 2>&1
-
-touch $TIMEFILE
