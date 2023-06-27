@@ -9,13 +9,13 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Wallpaper path
 set $wallpaper ~/.local/share/wallpaper.jpg
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -S drun | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
 
 # borders
 default_border pixel 1
@@ -131,9 +131,9 @@ input type:touchpad {
     bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/tools/backlight/backlight down 8%
 
     # Volume keys
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 #
 # Moving around:
