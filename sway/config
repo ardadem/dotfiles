@@ -46,6 +46,8 @@ output * bg $wallpaper fill
 
 # Enable freesync
 output eDP-1 adaptive_sync on
+output HDMI-A-1 res 2560x1440@70Hz pos 0,0
+#output HDMI-A-1 adaptive_sync on
 
 ### Idle configuration
 #

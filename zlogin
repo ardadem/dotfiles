@@ -17,5 +17,10 @@ export XDG_CURRENT_DESKTOP=sway
 # force qt apps to use adwaita-dark
 export QT_STYLE_OVERRIDE=Adwaita-dark
 
+export WLR_DRM_NO_MODIFIERS=1
+
+# swap default video device - BROKEN AFTER UPGRADE
+#export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+
 [[ -z ${DISPLAY} && $(fgconsole) -eq 1 ]] && \
 	exec dbus-run-session -- sway
